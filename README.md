@@ -406,26 +406,24 @@ If you know any other relevant mailing list that we should inform, please let us
 
 ## Media Coverage
 - [The Register](https://www.theregister.com/security/2026/07/04/confidential-computings-trust-mechanism-is-broken-the-fix-may-not-exist/5266056)
-- [Information Security News](https://meterpreter.org/attested-tls-vulnerability-cve-2026-33697/?utm_source=linkedin&utm_medium=jetpack_social)
+- (Japanese) [BlackHatNewsTokyo](https://blackhatnews.tokyo/archives/119915)
+- (Several languages) [Hackernoon](https://hackernoon.com/attested-tls-was-supposed-to-be-the-last-trust-boundary-it-isnt-formal-methods-show-how)
+- [Apple podcast](https://podcasts.apple.com/eg/podcast/attested-tls-was-supposed-to-be-the-last-trust/id1698517643?i=1000776623286)
+- [Information Security News](https://meterpreter.org/attested-tls-vulnerability-cve-2026-33697/)
 - [TheNextGenTechInsider](https://thenextgentechinsider.com/pulse/critical-flaw-discovered-in-confidential-computing-attestation-protocols)
 - [DailySecurityReview](https://dailysecurityreview.com/resources/cve-2026-33697-attested-tls-relay-flaw-hits-whatsapp-cocos-ai/)
 - [SC World](https://www.scworld.com/brief/confidential-computings-remote-attestation-protocol-may-have-fundamental-flaw)
 - [01 Quantum](https://blogs.groupware.org.uk/01-Quantum-Inc/the-handshake-that-cant-keep-its-promise-why-confidential-computings-flaw-changes-the-data-sovereignty-conversation/)
-- [thenextgentechinsider](https://thenextgentechinsider.com/pulse/critical-flaw-discovered-in-confidential-computing-attestation-protocols)
 - (Russian) [Security Lab](https://www.securitylab.ru/news/574545.php)
 - (German) [blogspan](https://www.blogspan.net/confidential-computing-attestierung-relay-luecke/)
-- [DailySecurityReview](https://dailysecurityreview.com/resources/cve-2026-33697-attested-tls-relay-flaw-hits-whatsapp-cocos-ai/)
 - (Chinese) [Sina](https://finance.sina.cn/tech/2026-07-04/detail-inifscxt9953361.d.html)
 - [data4biz](https://data4biz.com/articles/una-falla-rompe-la-fiducia-del-confidential-computing)
-- (Japanese) [BlackHatNewsTokyo](https://blackhatnews.tokyo/archives/119915)
-- (Several languages) [Hackernoon](https://hackernoon.com/attested-tls-was-supposed-to-be-the-last-trust-boundary-it-isnt-formal-methods-show-how)
 - (Russian) [ITSec](https://www.itsec.ru/news/issledovateli-nashli-kriticheskuyu-uyazvimost-v-attested-tls)
 - (Chinese) [smzdm](https://post.smzdm.com/p/a82ol990/)
 - (Chinese) [donews](https://www.donews.com/news/detail/4/6621022.html)
 - (Chinese) [ifeng](https://i.ifeng.com/c/8uUfy0PMmqE)
 - [dugganusa](https://www.dugganusa.com/post/confidential-computing-s-whole-pitch-is-trust-the-proof-not-the-cloud-two-years-of-formal-verifi)
 - (Chinese) [csdn](https://blog.csdn.net/weixin_42376192/category_13096766.html)
-- [meterpreter](https://meterpreter.org/attested-tls-vulnerability-cve-2026-33697/)
 - [osintsights](https://osintsights.com/confidential-computing-flaws-expose-trust-risks)
 - (Turkish) [hardwaremania](https://hardwaremania.com/haber/arastirma-attested-tls-confidential-computing-icin-zayif-kaliyor/)
 - [akber](https://akber.com/sovereignty-in-the-cloud-is-an-illusion/)
@@ -439,8 +437,14 @@ If you are around on any of the following venues of upcoming talks (in reverse c
 | --- | --- | --- | --- | --- |
 | [GA4GH 14th Plenary Meeting](https://www.ga4gh.org/event/14th-plenary/) | Singapore | 28 Sept-2 Oct, 2026 | Sponsors are invited | slides, video |
 | [ESORICS 2026](https://sites.google.com/di.uniroma1.it/esorics2026/) | Rome, Italy | 14-18 Sept, 2026 | Sponsors are invited | slides |
-| [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 18-24 July, 2026 | Sponsors are invited | slides, video |
-| [IETF 126 Hackathon](https://www.ietf.org/meeting/hackathons/126-hackathon/) | Vienna, Austria | 18-24 July, 2026 | Sponsors are invited | [Hackathon project](https://wiki.ietf.org/en/meeting/126/hackathon#cve-2026-33697-cvss-75-intra-handshakefail), slides, video |
+| IETF RATS Interim meeting | Virtual | TBA Sept, 2026 | - | slides, video |
+| AI Public Side Meeting @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 21 July, 2026 | ULISSY s.r.l. | slides, video |
+| SEAT @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 21 July, 2026 | ULISSY s.r.l. | slides, video |
+| [IETF 126 Hackdemo Happy Hour](https://www.ietf.org/meeting/hackathons/126-hackathon/) | Vienna, Austria | 20 July, 2026 | ULISSY s.r.l. | [Hackathon project](https://wiki.ietf.org/en/meeting/126/hackathon#cve-2026-33697-cvss-75-intra-handshakefail), [demo](https://wiki.ietf.org/en/meeting/126/hackathon/hackdemo) |
+| CC Public Side Meeting @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 20 July, 2026 | ULISSY s.r.l. | slides, video |
+| HotRFC @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 19 July, 2026 | ULISSY s.r.l. | [slides](https://datatracker.ietf.org/meeting/125/materials/slides-125-hotrfc-sessa-formal-proof-of-insecurity-of-intra-handshake-attestation-00), [video](https://youtu.be/FDHWRijxKso?t=3285) |
+| [IETF 126 Hackathon](https://www.ietf.org/meeting/hackathons/126-hackathon/) | Vienna, Austria | 19 July, 2026 | ULISSY s.r.l. | [Hackathon project](https://wiki.ietf.org/en/meeting/126/hackathon#cve-2026-33697-cvss-75-intra-handshakefail), [slides](https://datatracker.ietf.org/meeting/126/materials/slides-126-hackathon-sessd-intra-handshakefail-cve-2026-33697-00), video |
+| IEPG @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 19 July, 2026 | ULISSY s.r.l. | [slides](https://datatracker.ietf.org/meeting/126/materials/slides-126-iepg-sessa-05-intra-handshakefail-cve-2026-33697-00), [video](https://youtu.be/g8q_u19vXzk?t=4404) |
 | [Workshop](https://www.wissenschaftsnacht-dresden.de/programm/detailansicht/confidential-computing-15585) @ [Dresden Science Night 2026](https://www.wissenschaftsnacht-dresden.de/en/) | Dresden | 26 June, 2026 | - | [demo](https://www.wissenschaftsnacht-dresden.de/programm/detailansicht/confidential-computing-15585) |
 | [Output 2026](https://output-dd.de/) | Dresden | 25 June, 2026 | - | [demo](https://output-dd.de/projekte/relay-attacks-in-intra-handshake-attestation-for-confidential-agentic-ai-systems/) |
 | [Confidential Computing Summit 2026](https://events.linuxfoundation.org/confidential-computing-summit/) (presented by Jens Albers) | San Francisco, USA | 23-24 June, 2026 | - | poster, video |
