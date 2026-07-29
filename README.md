@@ -12,7 +12,31 @@
 
 </div>
 
-We *responsibly* disclosed the vulnerability in intra-handshake attestation -- as noted in [security advisory issued](https://github.com/ultravioletrs/cocos/security/advisories/GHSA-vfgg-mvxx-mgg7) -- to the vendors, which resulted in CVE (CVE-2026-33697) of CVSS 7.5.
+## Overview
+
+This repo contains the artifacts for formal specification and analysis of the candidate binding mechanisms for binding in intra-handshake attestation for standardization for attested TLS protocols:
+<!---
+TODO: Present as table: Binder # and Meaning
+--->
+
+<div align="center">
+
+| No. | Binding mechanism | Used in | Artifacts |
+|---|---|---|---|
+| 1. | Client’s TLS nonce | [Meta's AI](https://ai.meta.com/static-resource/private-processing-technical-whitepaper) | [binder1](./binder1/) |
+| 2. | Client’s attestation nonce | - | [binder2](./binder2/) |
+| 3. | Early exporter | - | [binder3](./binder3/) |
+| 4. | Server’s public key | - | [binder4](./binder4/) |
+| 5. | Combination of #2 and #3 | - | [binder5](./binder5/) |
+| 6. | Combination of #2 and #4 | [Edgeless Systems Contrast](https://github.com/CCC-Attestation/meetings/blob/main/materials/MarkusRudy.contrast-atls-ccc-attestation.pdf) </br> [Cocos AI](https://www.ultraviolet.rs/products/cocos-ai/) </br> CCC Attestation SIG's adopted project [attested TLS](https://github.com/ccc-attestation/attested-tls-poc)| [binder6](./binder6/) |
+| 7. | Combination of #2, #3, and #4 | [draft-fossati-tls-attestation-06](https://www.ietf.org/archive/id/draft-fossati-tls-attestation-06.html) | [binder7](./binder7/) |
+</div>
+
+> [!CAUTION]
+> We provide a formal proof of insecurity of all the above candidate binding mechanisms of intra-handshake attestation using the state-of-the-art tool [ProVerif](https://ieeexplore.ieee.org/document/9833653) and propose a mitigation for the discovered security vulnerabilities. Our study reveals that it may not be possible to achieve strong application-traffic (level 3) binding using intra-handshake attestation alone.
+
+
+We *responsibly* disclosed the vulnerability in intra-handshake attestation -- as noted in [security advisory issued](https://github.com/ultravioletrs/cocos/security/advisories/GHSA-vfgg-mvxx-mgg7) -- to the vendors, which resulted in CVE ([CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697)) of CVSS 7.5.
 
 ## Detailed vulnerability disclosure timeline
 
@@ -24,11 +48,12 @@ We *responsibly* disclosed the vulnerability in intra-handshake attestation -- a
 | Acknowledgement by vendor | 14 Dec, 2025 |
 | Information to the [IETF](https://mailarchive.ietf.org/arch/msg/rats/6gbqx0XY8WYrH3Mx4vO8n2-uKgY/) | 11 Jan, 2026 |
 | [Public announcement](https://web.archive.org/web/20260227160554/https://www.ultraviolet.rs/blog/tee-tls-privacy/) by vendor | 27 Feb, 2026 |
-| [Security advisory issued](https://github.com/ultravioletrs/cocos/security/advisories/GHSA-vfgg-mvxx-mgg7)  [**Severity = HIGH (CVSS 7.8)**] | 23 March, 2026 |
+| Cocos AI published [security advisory](https://github.com/ultravioletrs/cocos/security/advisories/GHSA-vfgg-mvxx-mgg7)  [**Severity = HIGH (CVSS 7.8)**] | 23 March, 2026 |
 | CVE ([CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697)) published  [**Severity = HIGH (CVSS 7.5)**] | 26 March, 2026 |
 | [CCC implementation](https://github.com/ccc-attestation/attested-tls-poc) declared [vulnerable to relay attacks](https://github.com/CCC-Attestation/attested-tls-poc/pull/58) | 17 July, 2026 |
 | Vulnerable [CCC implementation repo](https://github.com/ccc-attestation/attested-tls-poc) archived | 22 July, 2026 |
 | Vulnerable draft [draft-fossati-tls-attestation](https://datatracker.ietf.org/doc/draft-fossati-tls-attestation/10/) withdrawn by authors |  23 July, 2026 |
+| Edgeless Systems published [security advisory](https://github.com/edgelesssys/contrast/security/advisories/GHSA-hjgc-jc5v-fw7h)  [**Severity = HIGH (CVSS 7.4)**] | 29 July, 2026 |
 
 </div>
 
@@ -36,38 +61,21 @@ We *responsibly* disclosed the vulnerability in intra-handshake attestation -- a
 
 <div align="center">
 
-| Vulnerability | CVE | CVSS |
-|---|---|---|
-| [wiretap.fail](https://wiretap.fail/files/wiretap.pdf) | No CVE ([Intel](https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2025-10-28-001.html) and [AMD](https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2025-10-28-001.html) announcements) | - |
-| [TEE.fail](https://tee.fail/files/paper.pdf) | No CVE | - | 
-| [TDXdown](https://dl.acm.org/doi/10.1145/3658644.3690230) | [Intel](https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2024-10-08-001.html) | 2.5 |
-| [Staleus](https://xca-attacks.github.io/staleus/staleus_usenix26.pdf) | [CVE-2025-54509](https://nvd.nist.gov/vuln/detail/CVE-2025-54509) | 4.0 |
-| [BreakFAST](https://xca-attacks.github.io/breakfast/breakfast_oakland26.pdf) | [CVE-2025-61972](https://nvd.nist.gov/vuln/detail/CVE-2025-6197)| 4.2 |
-| [BadRAM](https://badram.eu/badram.pdf)| [AMD](https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3015.html)| 5.3 |
-| [BreakFAST](https://xca-attacks.github.io/breakfast/breakfast_oakland26.pdf) | [CVE-2025-61971](https://nvd.nist.gov/vuln/detail/CVE-2025-61971)| 5.9 |
-| [Fabricked](https://xca-attacks.github.io/fabricked/fabricked_usenix26.pdf) | [CVE-2025-54510](https://nvd.nist.gov/vuln/detail/cve-2025-54510)| 5.9 |
-| Intra-handshake.fail (this work) | [CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697) | 7.5 |
+| Vulnerability | CVE | CVSS | [Severity](https://nvd.nist.gov/vuln-metrics/cvss) |
+|---|---|---|---|
+| [wiretap.fail](https://wiretap.fail/files/wiretap.pdf) | No CVE ([Intel](https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2025-10-28-001.html) and [AMD](https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2025-10-28-001.html) announcements) | - | None |
+| [TEE.fail](https://tee.fail/files/paper.pdf) | No CVE | - | None |
+| [TDXdown](https://dl.acm.org/doi/10.1145/3658644.3690230) | [Intel](https://www.intel.com/content/www/us/en/security-center/announcement/intel-security-announcement-2024-10-08-001.html) | 2.5 | Low |
+| [Staleus](https://xca-attacks.github.io/staleus/staleus_usenix26.pdf) | [CVE-2025-54509](https://nvd.nist.gov/vuln/detail/CVE-2025-54509) | 4.0 | Medium |
+| [BreakFAST](https://xca-attacks.github.io/breakfast/breakfast_oakland26.pdf) | [CVE-2025-61972](https://nvd.nist.gov/vuln/detail/CVE-2025-6197)| 4.2 | Medium |
+| [BadRAM](https://badram.eu/badram.pdf)| [AMD](https://www.amd.com/en/resources/product-security/bulletin/amd-sb-3015.html)| 5.3 | Medium |
+| [BreakFAST](https://xca-attacks.github.io/breakfast/breakfast_oakland26.pdf) | [CVE-2025-61971](https://nvd.nist.gov/vuln/detail/CVE-2025-61971)| 5.9 | Medium |
+| [Fabricked](https://xca-attacks.github.io/fabricked/fabricked_usenix26.pdf) | [CVE-2025-54510](https://nvd.nist.gov/vuln/detail/cve-2025-54510)| 5.9 | Medium |
+| Intra-handshake.fail (this work) | [CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697) | 7.5 | High |
 
 </div>
 
 The comparison of the above with CVSS 7.5 for intra-handshake.fail indicates that attested TLS is not mature yet compared to the rest of the confidential computing stack, and is currently one of the weakest links in the ecosystem. We are investigating further and we are confident there are more high-severity vulnerabilities in intra-handshake attestation which are yet to be discovered.
-
-## Overview
-
-This repo contains the artifacts for formal specification and analysis of the candidate binding mechanisms for binding in intra-handshake attestation for standardization for attested TLS protocols:
-<!---
-TODO: Present as table: Binder # and Meaning
---->
-1. Client’s TLS nonce: used in [Meta's AI](https://ai.meta.com/static-resource/private-processing-technical-whitepaper)
-2. Client’s attestation nonce
-3. Early exporter
-4. Server’s public key
-5. Combination of #2 and #3
-6. Combination of #2 and #4: used in [Edgeless Systems Contrast](https://github.com/CCC-Attestation/meetings/blob/main/materials/MarkusRudy.contrast-atls-ccc-attestation.pdf), [Cocos AI](https://www.ultraviolet.rs/products/cocos-ai/), and CCC Attestation SIG's adopted project [attested TLS proof of concept](https://github.com/ccc-attestation/attested-tls-poc)
-7. Combination of #2, #3, and #4: proposed in [draft-fossati-tls-attestation-06](https://www.ietf.org/archive/id/draft-fossati-tls-attestation-06.html)
-
-> [!CAUTION]
-> We provide a formal proof of insecurity of all the above candidate binding mechanisms of intra-handshake attestation using the state-of-the-art tool [ProVerif](https://ieeexplore.ieee.org/document/9833653) and propose a mitigation for the discovered security vulnerabilities. Our study reveals that it may not be possible to achieve strong application-traffic (level 3) binding using intra-handshake attestation alone.
 
 <p align="center">
   <img src="images/relayAttacks.gif" width="400"><br>
@@ -78,12 +86,12 @@ TODO: Present as table: Binder # and Meaning
 - [Meta's AI](https://ai.meta.com/static-resource/private-processing-technical-whitepaper)
 - [Cocos AI](https://github.com/ultravioletrs/cocos)
 - [Edgeless Systems Contrast](https://github.com/edgelesssys/contrast)
-- CCC Attestation SIG's adopted project [attested TLS proof of concept](https://github.com/ccc-attestation/attested-tls-poc)
+- CCC Attestation SIG's adopted project [hardware-backed attestation in TLS](https://github.com/ccc-attestation/attested-tls-poc)
 
 ## Binding Levels
-1. DH shared secret
-2. Handshake traffic key
-3. Application traffic key
+1. DH shared secret (`gxy`) used as shared secret between client and server
+2. Handshake traffic key (`htsc`) used for encryption of handshake messages
+3. Application traffic key (`astc`) used for encryption of application data
 
 ## Correlation Goals
 We consider TLS Server as RATS Attester, which is typical in confidential computing.
@@ -99,12 +107,32 @@ We consider TLS Server as RATS Attester, which is typical in confidential comput
 - Our proposed mechanism helps achieve level 2 binding.
 - It may not be possible to achieve level 3 in intra-handshake attestation alone without additional assumptions.
 
+<div align="center">
+
 | Property                   	        | Mechanism #1,2,4,6 | Mechanism #3,5,7 | Proposed mechanism |
 | :--                		              | :--    | :--   | :--   |
-| G1 : Correlation of Evidence to gxy | ❌     | ✅    | ✅    |
-| G2 : Correlation of Evidence to kch | ❌     | ❌    | ✅    |
-| G3 : Correlation of Evidence to kc  | ❌     | ❌    | ❌    |
+| G1 : Correlation of Evidence to `gxy` | ❌     | ✅    | ✅    |
+| G2 : Correlation of Evidence to `kch` | ❌     | ❌    | ✅    |
+| G3 : Correlation of Evidence to `kc`  | ❌     | ❌    | ❌    |
 
+</div>
+
+### Expected results
+
+<div align="center">
+
+| No. | Binding mechanism | Artifacts | Expected results |
+|---|---|---|---|
+| 1. | Client’s TLS nonce | [binder1](./binder1/) | [binder1](./binder1/log.txt) |
+| 2. | Client’s attestation nonce | [binder2](./binder2/) | [binder2](./binder2/log.txt) |
+| 3. | Early exporter | [binder3](./binder3/) | [binder3](./binder3/log.txt) |
+| 4. | Server’s public key | [binder4](./binder4/) | [binder4](./binder4/log.txt) |
+| 5. | Combination of #2 and #3 | [binder5](./binder5/) | [binder5](./binder5/log.txt) |
+| 6. | Combination of #2 and #4 | [binder6](./binder6/) | [binder6](./binder6/log.txt) |
+| 7. | Combination of #2, #3, and #4 | [binder7](./binder7/) | [binder7](./binder7/log.txt) |
+| 8. | Proposed | [proposal](./proposal/) | [proposal](./proposal/log.txt) |
+
+</div>
 
 ### Implications of Research for IETF SEAT WG
 - We believe post-handshake attestation alone, such as [draft-fossati-seat-expat](https://datatracker.ietf.org/doc/draft-fossati-seat-expat/), can achieve level 3 binding.
@@ -233,8 +261,8 @@ This modeling choice makes it clear that even with the diversion attacks fixed, 
 <details>
 <summary>Click to expand folder details</summary>
 
-- Folders `binder1` till `binder7` contain code for binding mechanism #1 till #7, respectively.
-- Folder `proposal` contains code for our proposed binding mechanism.
+- Folders `binder1` till `binder7` contain code for [binding mechanism](https://github.com/muhammad-usama-sardar/intra-handshake.fail#overview) #1 till #7, respectively.
+- Folder `proposal` contains code for our proposed binding mechanism for mitigation.
 - Folder `aggregate` contains code for all proposed binding mechanisms to select via uncomment.
 
 </details>
@@ -417,11 +445,11 @@ We shared our results with the community for review and to raise awareness on hi
   - [DINRG](https://mailarchive.ietf.org/arch/msg/din/_8LE3Ru1xX16hgGJwryMTRwRoaA/)
 
 ### [CCC](https://confidentialcomputing.io/)
-  - Attestation SIG: [thread1](https://lists.confidentialcomputing.io/g/attestation/topic/117207133) and [thread2](https://lists.confidentialcomputing.io/g/attestation/message/325)
-  - TAC: [thread1](https://lists.confidentialcomputing.io/g/tac/topic/117932193) and [thread2](https://lists.confidentialcomputing.io/g/tac/message/1836)
+  - Attestation SIG: [thread1](https://lists.confidentialcomputing.io/g/attestation/topic/117207133) and [thread2](https://lists.confidentialcomputing.io/g/attestation/message/333)
+  - TAC: [thread1](https://lists.confidentialcomputing.io/g/tac/topic/117932193) and [thread2](https://lists.confidentialcomputing.io/g/tac/topic/120068850)
 
 ### [OCP](https://www.opencompute.org/) 
-  - OCP Security: [thread1](https://ocp-all.groups.io/g/OCP-Security/topic/117932716) and [thread2](https://ocp-all.groups.io/g/OCP-Security/topic/intra_handshake_fail/120069056)
+  - OCP Security: [thread1](https://ocp-all.groups.io/g/OCP-Security/topic/117932716), [thread2](https://ocp-all.groups.io/g/OCP-Security/topic/intra_handshake_fail/120069056) and [thread3](https://ocp-all.groups.io/g/OCP-Security/topic/intra_handshake_fail/120483814)
 
 If you know any other relevant mailing list that we should inform, please let us know.
 
@@ -445,11 +473,14 @@ If you know any other relevant mailing list that we should inform, please let us
 - (Chinese) [ifeng](https://i.ifeng.com/c/8uUfy0PMmqE)
 - [dugganusa](https://www.dugganusa.com/post/confidential-computing-s-whole-pitch-is-trust-the-proof-not-the-cloud-two-years-of-formal-verifi)
 - [dugganusa repo](https://github.com/pduggusa/dugganusa-ietf/tree/main/cve-2026-33697-attestation)
+- [spoitus](https://sploitus.com/exploit?id=92591A05-07BC-5015-BA3D-B1347B35D684)
+- [lavx news](https://news.lavx.hu/article/attested-tls-research-exposes-a-weak-link-in-confidential-computing)
 - (Chinese) [csdn](https://blog.csdn.net/weixin_42376192/category_13096766.html)
 - [osintsights](https://osintsights.com/confidential-computing-flaws-expose-trust-risks)
 - (Turkish) [hardwaremania](https://hardwaremania.com/haber/arastirma-attested-tls-confidential-computing-icin-zayif-kaliyor/)
 - [akber](https://akber.com/sovereignty-in-the-cloud-is-an-illusion/)
 - [ad-hoc news](https://www.ad-hoc-news.de/wissenschaft/cloud-souveraenitaet-red-hat-startet-reifegrad-assessments-gegen/69691475)
+- [AIMultiple](https://aimultiple.com/privacy-enhancing-technologies)
 
 If you have written an article on this and would like to be added here, please send me a PR.
 
