@@ -8,7 +8,7 @@
   <img src="images/logo.png" width="400"><br>
 </p>
 
-# [Paper](https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS)
+# [Paper](https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS) and  [Internet-Draft](https://datatracker.ietf.org/doc/draft-intra-handshake-fail) </br>
 
 </div>
 
@@ -28,13 +28,12 @@ TODO: Present as table: Binder # and Meaning
 | 3. | Early exporter | - | [binder3](./binder3/) |
 | 4. | Server’s public key | - | [binder4](./binder4/) |
 | 5. | Combination of #2 and #3 | - | [binder5](./binder5/) |
-| 6. | Combination of #2 and #4 | [Edgeless Systems Contrast](https://github.com/CCC-Attestation/meetings/blob/main/materials/MarkusRudy.contrast-atls-ccc-attestation.pdf) </br> [Cocos AI](https://www.ultraviolet.rs/products/cocos-ai/) </br> CCC Attestation SIG's adopted project [attested TLS](https://github.com/ccc-attestation/attested-tls-poc)| [binder6](./binder6/) |
+| 6. | Combination of #2 and #4 | [Edgeless Systems Contrast](https://github.com/CCC-Attestation/meetings/blob/main/materials/MarkusRudy.contrast-atls-ccc-attestation.pdf) </br> [Cocos AI](https://www.ultraviolet.rs/products/cocos-ai/) </br> CCC Attestation SIG's adopted project [intra-handshake attestation](https://github.com/ccc-attestation/attested-tls-poc)| [binder6](./binder6/) |
 | 7. | Combination of #2, #3, and #4 | [draft-fossati-tls-attestation-06](https://www.ietf.org/archive/id/draft-fossati-tls-attestation-06.html) | [binder7](./binder7/) |
 </div>
 
 > [!CAUTION]
-> We provide a formal proof of insecurity of all the above candidate binding mechanisms of intra-handshake attestation using the state-of-the-art tool [ProVerif](https://ieeexplore.ieee.org/document/9833653) and propose a mitigation for the discovered security vulnerabilities. Our study reveals that it may not be possible to achieve strong application-traffic (level 3) binding using intra-handshake attestation alone.
-
+> We provide a formal proof of insecurity of all the above candidate binding mechanisms of intra-handshake attestation using the state-of-the-art tool [ProVerif](https://ieeexplore.ieee.org/document/9833653) and propose a mitigation for the discovered security vulnerabilities. Our study reveals that it may not be possible to achieve strong application-traffic (level 3) binding using intra-handshake attestation alone. This can be exploited for relay attacks, where an attacker makes a client accept an evidence from a different machine. So the client cannot be sure that it connects to its desired server.
 
 We *responsibly* disclosed the vulnerability in intra-handshake attestation -- as noted in [security advisory issued](https://github.com/ultravioletrs/cocos/security/advisories/GHSA-vfgg-mvxx-mgg7) -- to the vendors, which resulted in CVE ([CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697)) of CVSS 7.5.
 
@@ -58,6 +57,8 @@ We *responsibly* disclosed the vulnerability in intra-handshake attestation -- a
 </div>
 
 ### Comparison with other vulnerabilities in confidential computing literature
+
+Severity is based on [NIST metrics](https://nvd.nist.gov/vuln-metrics/cvss).
 
 <div align="center">
 
@@ -83,10 +84,10 @@ The comparison of the above with CVSS 7.5 for intra-handshake.fail indicates tha
 </p>
 
 ## Affected Implementations
-- [Meta's AI](https://ai.meta.com/static-resource/private-processing-technical-whitepaper)
-- [Cocos AI](https://github.com/ultravioletrs/cocos)
-- [Edgeless Systems Contrast](https://github.com/edgelesssys/contrast)
-- CCC Attestation SIG's adopted project [hardware-backed attestation in TLS](https://github.com/ccc-attestation/attested-tls-poc)
+- [Meta's AI](https://ai.meta.com/static-resource/private-processing-technical-whitepaper): [CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697) [**Severity = HIGH (CVSS 7.5)**] 
+- [Cocos AI](https://github.com/ultravioletrs/cocos): [security advisory](https://github.com/ultravioletrs/cocos/security/advisories/GHSA-vfgg-mvxx-mgg7)  [**Severity = HIGH (CVSS 7.8)**] and [CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697) [**Severity = HIGH (CVSS 7.5)**] 
+- [Edgeless Systems Contrast](https://github.com/edgelesssys/contrast): [security advisory](https://github.com/edgelesssys/contrast/security/advisories/GHSA-hjgc-jc5v-fw7h)  [**Severity = HIGH (CVSS 7.4)**]
+- CCC Attestation SIG's adopted project [intra-handshake attestation](https://github.com/ccc-attestation/attested-tls-poc): declared [vulnerable to relay attacks](https://github.com/CCC-Attestation/attested-tls-poc/pull/58) and archived
 
 ## Binding Levels
 1. DH shared secret (`gxy`) used as shared secret between client and server
@@ -222,8 +223,9 @@ We gratefully acknowledge the following for insightful discussions on this work:
 - Casey Wilson
 - Danko Miladinovic
 - Songbo Bu
-- Nathanael Ritz
+- John Preuß Mattsson
 - Werner Staub
+- Nathanael Ritz
 
 We also gratefully acknowledge the following who gave feedback on [previous state-of-the-art](https://github.com/CCC-Attestation/formal-spec-id-crisis) that we utilize as the basis:
 
@@ -440,16 +442,16 @@ We shared our results with the community for review and to raise awareness on hi
   - [126attendees](https://mailarchive.ietf.org/arch/msg/126attendees/V9BKZJ_DGkZPdlnjBaUeyluhbqQ/)
 
 ### [IRTF](https://www.irtf.org/)
-  - [UFMRG](https://mailarchive.ietf.org/arch/msg/ufmrg/ZWK0uMM92OdwlPbgXBvQApDpe5Q/)
+  - UFMRG: [thread1](https://mailarchive.ietf.org/arch/msg/ufmrg/ZWK0uMM92OdwlPbgXBvQApDpe5Q/) and [thread2](https://mailarchive.ietf.org/arch/msg/ufmrg/ZRhR7o1HrWxfGDfgRJMR65RBkDE/)
   - CFRG [thread1](https://mailarchive.ietf.org/arch/msg/cfrg/NbxHIw9H_xpSYbgfO_n7lVIFeWs/) and [thread2](https://mailarchive.ietf.org/arch/msg/cfrg/U5YHd91lYjiqCTt9BZyVDNFeUpM/)
   - [DINRG](https://mailarchive.ietf.org/arch/msg/din/_8LE3Ru1xX16hgGJwryMTRwRoaA/)
 
 ### [CCC](https://confidentialcomputing.io/)
-  - Attestation SIG: [thread1](https://lists.confidentialcomputing.io/g/attestation/topic/117207133) and [thread2](https://lists.confidentialcomputing.io/g/attestation/message/333)
+  - Attestation SIG: [thread1](https://lists.confidentialcomputing.io/g/attestation/topic/117207133) and [thread2](https://lists.confidentialcomputing.io/g/attestation/message/334)
   - TAC: [thread1](https://lists.confidentialcomputing.io/g/tac/topic/117932193) and [thread2](https://lists.confidentialcomputing.io/g/tac/topic/120068850)
 
 ### [OCP](https://www.opencompute.org/) 
-  - OCP Security: [thread1](https://ocp-all.groups.io/g/OCP-Security/topic/117932716), [thread2](https://ocp-all.groups.io/g/OCP-Security/topic/intra_handshake_fail/120069056) and [thread3](https://ocp-all.groups.io/g/OCP-Security/topic/intra_handshake_fail/120483814)
+  - OCP Security: [message1](https://ocp-all.groups.io/g/OCP-Security/topic/117932716), [message2](https://ocp-all.groups.io/g/OCP-Security/topic/intra_handshake_fail/120069056), [message3](https://ocp-all.groups.io/g/OCP-Security/topic/intra_handshake_fail/120483814) and [message4](https://ocp-all.groups.io/g/OCP-Security/topic/intra_handshake_fail/120524635)
 
 If you know any other relevant mailing list that we should inform, please let us know.
 
@@ -475,6 +477,10 @@ If you know any other relevant mailing list that we should inform, please let us
 - [dugganusa repo](https://github.com/pduggusa/dugganusa-ietf/tree/main/cve-2026-33697-attestation)
 - [spoitus](https://sploitus.com/exploit?id=92591A05-07BC-5015-BA3D-B1347B35D684)
 - [lavx news](https://news.lavx.hu/article/attested-tls-research-exposes-a-weak-link-in-confidential-computing)
+- [sohu](https://www.sohu.com/a/1045865934_122004016)
+- [Persian](https://news.ditty.ir/news/attested-tls-relay-flaw-formal-methods/019f6221-26ca-7293-9ee9-5557b3c0b8f8)
+- [GCVE.eu](https://db.gcve.eu/sightings/?query=cve-2026-33697)
+- [freenode](https://freenode.net/digest/67)
 - (Chinese) [csdn](https://blog.csdn.net/weixin_42376192/category_13096766.html)
 - [osintsights](https://osintsights.com/confidential-computing-flaws-expose-trust-risks)
 - (Turkish) [hardwaremania](https://hardwaremania.com/haber/arastirma-attested-tls-confidential-computing-icin-zayif-kaliyor/)
@@ -492,12 +498,13 @@ If you are around on any of the following venues of upcoming talks (in reverse c
 | --- | --- | --- | --- | --- |
 | [Linux Plumbers Conference 2026](https://lpc.events/event/20/) | Prague, Czechia | 5-7 Oct, 2026 | Sponsors are invited | slides, video |
 | [GA4GH 14th Plenary Meeting](https://www.ga4gh.org/event/14th-plenary/) | Singapore | 28 Sept-2 Oct, 2026 | Sponsors are invited | slides, video |
+| Data Security Work Stream (DSWS) at [The Global Alliance for Genomics and Health (GA4GH)](https://www.ga4gh.org/) | Virtual | 21 Sept, 2026 | - | slides, video |
 | [ESORICS 2026](https://sites.google.com/di.uniroma1.it/esorics2026/) | Rome, Italy | 14-18 Sept, 2026 | Sponsors are invited | slides |
 | IETF RATS Interim meeting | Virtual | TBA Sept, 2026 | - | slides, video |
-| Confidential AI Public Side Meeting @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 21 July, 2026 | ULISSY s.r.l. | slides, video |
+| Confidential AI Public Side Meeting @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 21 July, 2026 | ULISSY s.r.l. | [slides](https://www.researchgate.net/publication/410954219_Proposed_RG_Confidential_Computing_for_Agentic_AI), video |
 | SEAT @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 21 July, 2026 | ULISSY s.r.l. | [slides](https://datatracker.ietf.org/meeting/126/materials/slides-126-seat-binding-properties-of-expat-00.pdf), [video](https://youtu.be/Fb5Hzh1mp1E?t=4189) |
 | [IETF 126 Hackdemo Happy Hour](https://wiki.ietf.org/en/meeting/126/hackathon/hackdemo) | Vienna, Austria | 20 July, 2026 | ULISSY s.r.l. | [Hackathon project](https://wiki.ietf.org/en/meeting/126/hackathon#cve-2026-33697-cvss-75-intra-handshakefail), [demo](https://wiki.ietf.org/en/meeting/126/hackathon/hackdemo) |
-| Confidential Computing Public Side Meeting @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 20 July, 2026 | ULISSY s.r.l. | [plan](https://mailarchive.ietf.org/arch/msg/126attendees/V9BKZJ_DGkZPdlnjBaUeyluhbqQ/), slides, video |
+| Confidential Computing Public Side Meeting @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 20 July, 2026 | ULISSY s.r.l. | [plan](https://mailarchive.ietf.org/arch/msg/126attendees/V9BKZJ_DGkZPdlnjBaUeyluhbqQ/), [slides](https://www.researchgate.net/publication/410954219_Proposed_RG_Confidential_Computing_for_Agentic_AI), video |
 | HotRFC @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 19 July, 2026 | ULISSY s.r.l. | [slides](https://datatracker.ietf.org/meeting/126/materials/slides-126-hotrfc-sessa-15-confidential-computing-and-digital-sovereignty-00), [video](https://youtu.be/FDHWRijxKso?t=3285) |
 | [IETF 126 Hackathon](https://www.ietf.org/meeting/hackathons/126-hackathon/) | Vienna, Austria | 19 July, 2026 | ULISSY s.r.l. | [Hackathon project](https://wiki.ietf.org/en/meeting/126/hackathon#cve-2026-33697-cvss-75-intra-handshakefail), [slides](https://datatracker.ietf.org/meeting/126/materials/slides-126-hackathon-sessd-intra-handshakefail-cve-2026-33697-00), [video](https://youtu.be/GRqyrDIEgEw?t=1340) |
 | IEPG @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 19 July, 2026 | ULISSY s.r.l. | [slides](https://datatracker.ietf.org/meeting/126/materials/slides-126-iepg-sessa-05-intra-handshakefail-cve-2026-33697-00), [video](https://youtu.be/g8q_u19vXzk?t=4404) |
