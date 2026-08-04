@@ -8,7 +8,7 @@
   <img src="images/logo.png" width="400"><br>
 </p>
 
-# [Paper](https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS) and  [Internet-Draft](https://datatracker.ietf.org/doc/draft-intra-handshake-fail) </br>
+# [Paper](https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS) and  [Internet-Draft](https://www.ietf.org/archive/id/draft-intra-handshake-fail-01.html) </br>
 
 </div>
 
@@ -259,6 +259,13 @@ The formal model uses the [fixed version of diversion attacks in intra-handshake
 The rationale is that we consider it more useful to show the added value of this contribution to the community by using the [fixed version of diversion attacks in intra-handshake attestation](https://github.com/CCC-Attestation/formal-spec-id-crisis/tree/main/TLS-a/fix) as the baseline, rather than showing the same diversion attacks from [ID-Crisis paper](https://dl.acm.org/doi/10.1145/3779208.3785387), and the discovered CVE (CVE-2026-33697) -- which the previous analysis could not find -- practically demonstrates the added value.
 This modeling choice makes it clear that even with the diversion attacks fixed, high-severity relay attacks would still remain in intra-handshake attestation.
 
+Note: Similar to the [fixed version of diversion attacks in intra-handshake attestation](https://github.com/CCC-Attestation/formal-spec-id-crisis/tree/main/TLS-a/fix) from our previous work, we model non-PSK-based handshake.
+From [ID-Crisis paper](https://dl.acm.org/doi/10.1145/3779208.3785387):
+
+> For modeling TLS 1.3, we consider handshakes based on Diffie-Hellman over either finite fields or elliptic curves, represented as (EC)DHE. This is because we are unaware of any publicly available specification or implementation of attested TLS with PSK-based handshakes.
+
+While it would be nice to model PSK-based handshake, the rationale is that the correlation properties studied in this work do not necessarily require it.
+
 ## Artifacts organization
 <details>
 <summary>Click to expand folder details</summary>
@@ -460,6 +467,8 @@ If you know any other relevant mailing list that we should inform, please let us
 - (Japanese) [BlackHatNewsTokyo](https://blackhatnews.tokyo/archives/119915)
 - (Several languages) [Hackernoon](https://hackernoon.com/attested-tls-was-supposed-to-be-the-last-trust-boundary-it-isnt-formal-methods-show-how)
 - [Apple podcast](https://podcasts.apple.com/eg/podcast/attested-tls-was-supposed-to-be-the-last-trust/id1698517643?i=1000776623286)
+- (Chinese) [LCJM.CC](https://lcjm.cc/a/20241380)
+- (Chinese) [LCJM.CC Retrospective](https://lcjm.cc/a/20241461)
 - [Information Security News](https://meterpreter.org/attested-tls-vulnerability-cve-2026-33697/)
 - [TheNextGenTechInsider](https://thenextgentechinsider.com/pulse/critical-flaw-discovered-in-confidential-computing-attestation-protocols)
 - [DailySecurityReview](https://dailysecurityreview.com/resources/cve-2026-33697-attested-tls-relay-flaw-hits-whatsapp-cocos-ai/)
