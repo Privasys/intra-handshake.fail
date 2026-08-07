@@ -28,7 +28,7 @@ TODO: Present as table: Binder # and Meaning
 | 3. | Early exporter | - | [binder3](./binder3/) |
 | 4. | Server’s public key | - | [binder4](./binder4/) |
 | 5. | Combination of #2 and #3 | - | [binder5](./binder5/) |
-| 6. | Combination of #2 and #4 | [Edgeless Systems Contrast](https://github.com/CCC-Attestation/meetings/blob/main/materials/MarkusRudy.contrast-atls-ccc-attestation.pdf) </br> [Cocos AI](https://www.ultraviolet.rs/products/cocos-ai/) </br> CCC Attestation SIG's adopted project [intra-handshake attestation](https://github.com/ccc-attestation/attested-tls-poc)| [binder6](./binder6/) |
+| 6. | Combination of #2 and #4 | [Edgeless Systems Contrast](https://github.com/CCC-Attestation/meetings/blob/main/materials/MarkusRudy.contrast-atls-ccc-attestation.pdf) </br> [Cocos AI](https://www.ultraviolet.rs/products/cocos-ai/) </br> [CCC Attestation SIG](https://github.com/CCC-Attestation)'s adopted project [intra-handshake attestation](https://github.com/ccc-attestation/attested-tls-poc)| [binder6](./binder6/) |
 | 7. | Combination of #2, #3, and #4 | [draft-fossati-tls-attestation-06](https://www.ietf.org/archive/id/draft-fossati-tls-attestation-06.html) | [binder7](./binder7/) |
 </div>
 
@@ -87,7 +87,7 @@ The comparison of the above with CVSS 7.5 for intra-handshake.fail indicates tha
 - [Meta's AI](https://ai.meta.com/static-resource/private-processing-technical-whitepaper): [CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697) [**Severity = HIGH (CVSS 7.5)**] 
 - [Cocos AI](https://github.com/ultravioletrs/cocos): [security advisory](https://github.com/ultravioletrs/cocos/security/advisories/GHSA-vfgg-mvxx-mgg7)  [**Severity = HIGH (CVSS 7.8)**] and [CVE-2026-33697](https://www.cve.org/CVERecord?id=CVE-2026-33697) [**Severity = HIGH (CVSS 7.5)**] 
 - [Edgeless Systems Contrast](https://github.com/edgelesssys/contrast): [security advisory](https://github.com/edgelesssys/contrast/security/advisories/GHSA-hjgc-jc5v-fw7h)  [**Severity = HIGH (CVSS 7.4)**]
-- CCC Attestation SIG's adopted project [intra-handshake attestation](https://github.com/ccc-attestation/attested-tls-poc): declared [vulnerable to relay attacks](https://github.com/CCC-Attestation/attested-tls-poc/pull/58) and archived
+- [CCC Attestation SIG](https://github.com/CCC-Attestation)'s adopted project [intra-handshake attestation](https://github.com/ccc-attestation/attested-tls-poc): declared [vulnerable to relay attacks](https://github.com/CCC-Attestation/attested-tls-poc/pull/58) and archived
 
 ## Binding Levels
 1. DH shared secret (`gxy`) used as shared secret between client and server
@@ -539,12 +539,13 @@ If you are around on any of the following venues of upcoming talks (in reverse c
 | HotRFC @ [IETF 125](https://www.ietf.org/meeting/125/) | Shenzhen, China (virtual) | 15 Mar, 2026 | - | [slides](https://datatracker.ietf.org/meeting/125/materials/slides-125-hotrfc-sessa-formal-proof-of-insecurity-of-intra-handshake-attestation-00), [video](https://youtu.be/OtOo7Nogisw?t=3514) |
 | [IETF 125 Hackathon](https://www.ietf.org/meeting/hackathons/125-hackathon/) | Shenzhen, China (virtual) | 14-15 Mar, 2026 | - | [Hackathon project](https://wiki.ietf.org/en/meeting/125/hackathon#relay-attacks-in-intra-handshake-attestation-for-confidential-agentic-ai-systems), [slides](https://datatracker.ietf.org/meeting/125/materials/slides-125-hackathon-sessd-relay-attacks-in-intra-handshake-attestation-00), [video](https://youtu.be/62A58qH19MI?t=2270) |
 | [Open Confidential Computing Conference (OC3)](https://www.oc3.dev/) | Berlin  | 12 Mar, 2026 | - | - |
-| CCC Attestation SIG | Virtual | 10 Feb, 2026 | - | slides; [video](https://www.youtube.com/watch?v=idqwb0hFlhs&list=PLmfkUJc39uMhZsNGmpx-qD-uCoQyMglIp&t=1061s) |
+| [CCC Attestation SIG](https://github.com/CCC-Attestation) | Virtual | 10 Feb, 2026 | - | [slides](https://github.com/muhammad-usama-sardar/CCC-Att-meetings/blob/main/materials/MuhammadUsamaSardar_RelayAttacksGen_20260210.pdf); [video](https://www.youtube.com/watch?v=idqwb0hFlhs&list=PLmfkUJc39uMhZsNGmpx-qD-uCoQyMglIp&t=1061s) |
 | [IETF RATS Interim meeting](https://datatracker.ietf.org/meeting/interim-2026-rats-01/session/rats) | Virtual | 9 Feb, 2026 | - | [slides](https://datatracker.ietf.org/meeting/interim-2026-rats-01/materials/slides-interim-2026-rats-01-sessa-relayattacks-00.pdf), [video](https://youtu.be/gURY61dViPw?t=1474)  |
 | [Confidential Computing](https://fosdem.org/2026/schedule/track/confidential-computing/) devroom at [FOSDEM 2026](https://fosdem.org/2026/) | Brussels, Belgium | 31 Jan-1 Feb, 2026 | [CCC](https://confidentialcomputing.io/) | [abstract](https://fosdem.org/2026/schedule/event/GHGFBM-attestedtls/), [slides](https://fosdem.org/2026/events/attachments/GHGFBM-attestedtls/slides/267432/20260201_60u9e0n.pdf), [video](https://video.fosdem.org/2026/ud6215/GHGFBM-attestedtls.av1.webm) |
-| CCC Attestation SIG | Virtual | 27 Jan, 2026 | - | slides; [video](https://youtu.be/P04tLJcSxfM?list=PLmfkUJc39uMhZsNGmpx-qD-uCoQyMglIp&t=434) |
-| CCC Attestation SIG | Virtual | 13 Jan, 2026 | - | slides; [video](https://youtu.be/cSrCZNyo7_g?list=PLmfkUJc39uMhZsNGmpx-qD-uCoQyMglIp&t=1083) |
-| CCC Attestation SIG | Virtual | 2 Dec, 2025 | - | slides; [video](https://youtu.be/16aGZ-oZidg?list=PLmfkUJc39uMhZsNGmpx-qD-uCoQyMglIp&t=2920) |
+| [CCC Attestation SIG](https://github.com/CCC-Attestation) | Virtual | 27 Jan, 2026 | - | [slides](https://github.com/muhammad-usama-sardar/CCC-Att-meetings/blob/main/materials/MuhammadUsamaSardar_RelayAttacksProposal_20260127.pdf); [video](https://youtu.be/P04tLJcSxfM?list=PLmfkUJc39uMhZsNGmpx-qD-uCoQyMglIp&t=434) |
+| [CCC Attestation SIG](https://github.com/CCC-Attestation) | Virtual | 13 Jan, 2026 | - | [slides](https://github.com/muhammad-usama-sardar/CCC-Att-meetings/blob/main/materials/MuhammadUsamaSardar_RelayAttacks_20260113.pdf); [video](https://youtu.be/cSrCZNyo7_g?list=PLmfkUJc39uMhZsNGmpx-qD-uCoQyMglIp&t=1083) |
+| [CCC Attestation SIG](https://github.com/CCC-Attestation) | Virtual | 16 Dec, 2025 | - | [slides](https://github.com/CCC-Attestation/meetings/blob/main/materials/MuhammadUsamaSardar_Binding_Properties_20251216.pdf); [video](https://youtu.be/w_MrjMeHyP8?list=PLmfkUJc39uMhZsNGmpx-qD-uCoQyMglIp&t=593) |
+| [CCC Attestation SIG](https://github.com/CCC-Attestation) | Virtual | 2 Dec, 2025 | - | [slides](https://github.com/muhammad-usama-sardar/CCC-Att-meetings/blob/main/materials/MuhammadUsamaSardar_Open_Questions_20251202.pdf); [video](https://youtu.be/16aGZ-oZidg?list=PLmfkUJc39uMhZsNGmpx-qD-uCoQyMglIp&t=2920) |
 
 ## Feedback/Comments/Critique/Contributions
 We would love to have your contributions and feedback (especially critique! yes, this is how the science progresses, but please be genuine!). Contact Muhammad Usama Sardar on CCC Slack Workspace, by [email](https://tu-dresden.de/ing/informatik/sya/se/die-professur/beschaeftigte/muhammad-usama-sardar), submit a minimal PR, or open an issue. 
