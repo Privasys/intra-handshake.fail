@@ -8,7 +8,7 @@
   <img src="images/logo.png" width="400"><br>
 </p>
 
-# [Paper](https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS) and  [Internet-Draft](https://www.ietf.org/archive/id/draft-intra-handshake-fail-01.html) </br>
+# [Paper](https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS) and  [Internet-Draft](https://www.ietf.org/archive/id/draft-intra-handshake-fail-03.html) </br>
 
 </div>
 
@@ -467,8 +467,6 @@ If you know any other relevant mailing list that we should inform, please let us
 - (Japanese) [BlackHatNewsTokyo](https://blackhatnews.tokyo/archives/119915)
 - (Several languages) [Hackernoon](https://hackernoon.com/attested-tls-was-supposed-to-be-the-last-trust-boundary-it-isnt-formal-methods-show-how)
 - [Apple podcast](https://podcasts.apple.com/eg/podcast/attested-tls-was-supposed-to-be-the-last-trust/id1698517643?i=1000776623286)
-- (Chinese) [LCJM.CC](https://lcjm.cc/a/20241380)
-- (Chinese) [LCJM.CC Retrospective](https://lcjm.cc/a/20241461)
 - [Information Security News](https://meterpreter.org/attested-tls-vulnerability-cve-2026-33697/)
 - [TheNextGenTechInsider](https://thenextgentechinsider.com/pulse/critical-flaw-discovered-in-confidential-computing-attestation-protocols)
 - [DailySecurityReview](https://dailysecurityreview.com/resources/cve-2026-33697-attested-tls-relay-flaw-hits-whatsapp-cocos-ai/)
@@ -487,8 +485,13 @@ If you know any other relevant mailing list that we should inform, please let us
 - [spoitus](https://sploitus.com/exploit?id=92591A05-07BC-5015-BA3D-B1347B35D684)
 - [lavx news](https://news.lavx.hu/article/attested-tls-research-exposes-a-weak-link-in-confidential-computing)
 - [sohu](https://www.sohu.com/a/1045865934_122004016)
-- [Persian](https://news.ditty.ir/news/attested-tls-relay-flaw-formal-methods/019f6221-26ca-7293-9ee9-5557b3c0b8f8)
+- (Persian) [news.ditty](https://news.ditty.ir/news/attested-tls-relay-flaw-formal-methods/019f6221-26ca-7293-9ee9-5557b3c0b8f8)
+- (Russian) [LiMP VPN](https://limpvpn.com/ru/news/attested-tls-whatsapp-privacy-flaw-2026)
+- [daily.dev](https://daily.dev/posts/kI6PoNzPx)
+- [warden](https://warden.veritai.ch/news/researchers-find-attested-tls-flaws-that-weaken-confidential-computing-trust-model)
 - [GCVE.eu](https://db.gcve.eu/sightings/?query=cve-2026-33697)
+- [coderlegion](https://coderlegion.com/24087/intra-handshake-attestation-when-more-security-doesnt-mean-better-security)
+- [Anjuna Security](https://www.anjuna.io/blog/attested-tls-flaw-explained)
 - [freenode](https://freenode.net/digest/67)
 - (Chinese) [csdn](https://blog.csdn.net/weixin_42376192/category_13096766.html)
 - [osintsights](https://osintsights.com/confidential-computing-flaws-expose-trust-risks)
@@ -507,10 +510,11 @@ If you are around on any of the following venues of upcoming talks (in reverse c
 | --- | --- | --- | --- | --- |
 | [Linux Plumbers Conference 2026](https://lpc.events/event/20/) | Prague, Czechia | 5-7 Oct, 2026 | Sponsors are invited | slides, video |
 | [GA4GH 14th Plenary Meeting](https://www.ga4gh.org/event/14th-plenary/) | Singapore | 28 Sept-2 Oct, 2026 | Sponsors are invited | slides, video |
-| Data Security Work Stream (DSWS) at [The Global Alliance for Genomics and Health (GA4GH)](https://www.ga4gh.org/) | Virtual | 21 Sept, 2026 | - | slides, video |
+| [Data Security Work Stream (DSWS)](https://www.ga4gh.org/work_stream/data-security/) at the [Global Alliance for Genomics and Health (GA4GH)](https://www.ga4gh.org/) | Virtual | 21 Sept, 2026 | - | slides, video |
 | [ESORICS 2026](https://sites.google.com/di.uniroma1.it/esorics2026/) | Rome, Italy | 14-18 Sept, 2026 | Sponsors are invited | slides |
 | IETF RATS Interim meeting | Virtual | TBA Sept, 2026 | - | slides, video |
-| Confidential AI Public Side Meeting @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 21 July, 2026 | ULISSY s.r.l. | [slides](https://www.researchgate.net/publication/410954219_Proposed_RG_Confidential_Computing_for_Agentic_AI), video |
+| [RIOT Summit 2026](https://summit.riot-os.org/2026/) | Grenoble, France | 2-4 September, 2026 | Sponsors are invited | [abstract](https://summit.riot-os.org/2026/blog/speakers/muhammad-usama-sardar/), slides, video |
+| Confidential AI Public Side Meeting @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 21 July, 2026 | ULISSY s.r.l. | [plan](https://mailarchive.ietf.org/arch/msg/126attendees/odgd_xmhjQXiR_aLYdqtVvDJeF4/), [slides](https://www.researchgate.net/publication/410954219_Proposed_RG_Confidential_Computing_for_Agentic_AI), video |
 | SEAT @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 21 July, 2026 | ULISSY s.r.l. | [slides](https://datatracker.ietf.org/meeting/126/materials/slides-126-seat-binding-properties-of-expat-00.pdf), [video](https://youtu.be/Fb5Hzh1mp1E?t=4189) |
 | [IETF 126 Hackdemo Happy Hour](https://wiki.ietf.org/en/meeting/126/hackathon/hackdemo) | Vienna, Austria | 20 July, 2026 | ULISSY s.r.l. | [Hackathon project](https://wiki.ietf.org/en/meeting/126/hackathon#cve-2026-33697-cvss-75-intra-handshakefail), [demo](https://wiki.ietf.org/en/meeting/126/hackathon/hackdemo) |
 | Confidential Computing Public Side Meeting @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 20 July, 2026 | ULISSY s.r.l. | [plan](https://mailarchive.ietf.org/arch/msg/126attendees/V9BKZJ_DGkZPdlnjBaUeyluhbqQ/), [slides](https://www.researchgate.net/publication/410954219_Proposed_RG_Confidential_Computing_for_Agentic_AI), video |
@@ -519,13 +523,13 @@ If you are around on any of the following venues of upcoming talks (in reverse c
 | IEPG @ [IETF 126](https://www.ietf.org/meeting/126/) | Vienna, Austria | 19 July, 2026 | ULISSY s.r.l. | [slides](https://datatracker.ietf.org/meeting/126/materials/slides-126-iepg-sessa-05-intra-handshakefail-cve-2026-33697-00), [video](https://youtu.be/g8q_u19vXzk?t=4404) |
 | [Workshop](https://www.wissenschaftsnacht-dresden.de/programm/detailansicht/confidential-computing-15585) @ [Dresden Science Night 2026](https://www.wissenschaftsnacht-dresden.de/en/) | Dresden | 26 June, 2026 | - | [demo](https://www.wissenschaftsnacht-dresden.de/programm/detailansicht/confidential-computing-15585) |
 | [Output 2026](https://output-dd.de/) | Dresden | 25 June, 2026 | - | [demo](https://output-dd.de/projekte/relay-attacks-in-intra-handshake-attestation-for-confidential-agentic-ai-systems/) |
-| [Confidential Computing Summit 2026](https://events.linuxfoundation.org/confidential-computing-summit/) (presented by Jens Albers) | San Francisco, USA | 23-24 June, 2026 | - | poster, video |
+| [Confidential Computing Summit 2026](https://events.linuxfoundation.org/confidential-computing-summit/) (presented by Jens Albers) | San Francisco, USA | 23-24 June, 2026 | - | [poster](https://www.researchgate.net/publication/411851358_Standardization_of_Attested_TLS), video |
 | [Workshop for the 25 years of ProVerif](https://bblanche.gitlabpages.inria.fr/proverif//25years.html) | Paris, France | 3 June, 2026 | Sponsors are invited | - |
-| Confidential Containers @ [Cloud Native Computing Foundation](https://www.cncf.io/) | Virtual | 30 April, 2026 | - | slides, video |
+| [Confidential Containers Community Meeting](https://confidentialcontainers.org/) @ [Cloud Native Computing Foundation](https://www.cncf.io/) | Virtual | 30 April, 2026 | - | [slides](https://www.researchgate.net/publication/411849492_Relay_Attacks_in_Intra-handshake_Attestation), [video](https://zoom.us/rec/share/3thZhsRi-BZJL-GqjnwGzh7inbltuKIlpVjqMlWp6WRdMTZ66Z8p-8YjaaeOfbhX.CoH6YBukaKua0gkt) around timestamp 00:27:00 |
 | GIF Project showcase @ [GA4GH April Connect 2026](https://www.ga4gh.org/event/april-connect-2026/) | Montreal, Canada (virtual) | 17 April, 2026 | - | slides, [video](https://youtu.be/Kr9oxp1fdn0?t=1083), [report](https://www.ga4gh.org/document/arpril-connect-2026-meeting-report/) |
 | [NSA Symposium on Hot Topics in the Science of Security (HotSoS) 2026](https://sos-vo.org/group/hotsos/) | Virtual | 16 April, 2026 | - | [abstract](https://sos-vo.org/group/hotsos/2026/sardar), [slides](https://sos-vo.org/system/files/2026-04/20260416_HotSoS%20%281%29.pdf), [video](https://sos-vo.org/group/hotsos/2026/sardar) |
-| [PET-CON 2026.1: 15th Privacy Enhancing Techniques Convention](https://fg-pet.gi.de/veranstaltung/15th-privacy-enhancing-techniques-convention) | Karlsruhe, Germany | 16-17 April, 2026 | Sponsors are invited | slides |
-| [GTMFS 2026: Annual Meeting of the WG "Formal Methods in Security"](https://gtmfs2026.sciencesconf.org/program?lang=en) | Luz-Saint-Sauveur, France | 24-26 Mar, 2026 | Sponsors are invited | slides |
+| [PET-CON 2026.1: 15th Privacy Enhancing Techniques Convention](https://fg-pet.gi.de/veranstaltung/15th-privacy-enhancing-techniques-convention) | Karlsruhe, Germany | 16-17 April, 2026 | Sponsors are invited | [slides](https://www.researchgate.net/publication/411849502_Formal_Analysis_of_Attested_TLS), [poster](https://www.researchgate.net/publication/411852738_Formal_Analysis_of_Attested_TLS_and_Standardization_in_the_IETF) |
+| [GTMFS 2026: Annual Meeting of the WG "Formal Methods in Security"](https://gtmfs2026.sciencesconf.org/program?lang=en) | Luz-Saint-Sauveur, France | 24-26 Mar, 2026 | Sponsors are invited | [slides](https://www.researchgate.net/publication/411853715_Relay_Attacks_in_Intra-handshake_Attestation) |
 | TLS @ [IETF 125](https://www.ietf.org/meeting/125/) | Shenzhen, China (virtual) | 20 Mar, 2026 | - | [slides](https://datatracker.ietf.org/meeting/125/materials/slides-125-tls-tls-fatt-extensions-00), [video](https://youtu.be/2GkmQmRlkto?t=3988) |
 | CFRG @ [IETF 125](https://www.ietf.org/meeting/125/) | Shenzhen, China (virtual) | 19 Mar, 2026 | - | [slides](https://datatracker.ietf.org/meeting/125/materials/slides-125-cfrg-relay-attacks-00), [video](https://youtu.be/IfKgbO74Lt4?t=6054) |
 | SEAT @ [IETF 125](https://www.ietf.org/meeting/125/) (expat) | Shenzhen, China (virtual) | 17 Mar, 2026 | - | [slides](https://datatracker.ietf.org/meeting/125/materials/slides-125-seat-seat-expat-00), [video](https://youtu.be/hX7genEkN7w?t=3169) |
