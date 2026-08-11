@@ -8,7 +8,7 @@
   <img src="images/logo.png" width="400"><br>
 </p>
 
-# [Paper](https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS) and  [Internet-Draft](https://www.ietf.org/archive/id/draft-intra-handshake-fail-03.html) </br>
+# [Paper](https://www.researchgate.net/publication/408219182_Intra-handshakefail_CVE-2026-33697_High-severity_CVE_in_Attested_TLS) and  [Internet-Draft](https://www.ietf.org/archive/id/draft-intra-handshake-fail-05.html) </br>
 
 </div>
 
@@ -267,12 +267,16 @@ From [ID-Crisis paper](https://dl.acm.org/doi/10.1145/3779208.3785387):
 While it would be nice to model PSK-based handshake, the rationale is that the correlation properties studied in this work do not necessarily require it.
 
 ## Artifacts organization
+
+> [!TIP]
+> The artifacts are quite flexible for modification and testing of different intra-handshake attestation binding mechanisms by simply changing single `rdata` parameter in the `Client` and `Server` processes. Folder `aggregate` contains all [analyzed](https://github.com/muhammad-usama-sardar/intra-handshake.fail#overview) and proposed binding mechanisms to select via comment and uncomment. Other folders contain one specific binding mechanism.
+
 <details>
 <summary>Click to expand folder details</summary>
 
 - Folders `binder1` till `binder7` contain code for [binding mechanism](https://github.com/muhammad-usama-sardar/intra-handshake.fail#overview) #1 till #7, respectively.
 - Folder `proposal` contains code for our proposed binding mechanism for mitigation.
-- Folder `aggregate` contains code for all proposed binding mechanisms to select via uncomment.
+- Folder `aggregate` contains code for all analyzed and proposed binding mechanisms to select via uncomment.
 
 </details>
 
@@ -526,7 +530,7 @@ If you are around on any of the following venues of upcoming talks (in reverse c
 | [Confidential Computing Summit 2026](https://events.linuxfoundation.org/confidential-computing-summit/) (presented by Jens Albers) | San Francisco, USA | 23-24 June, 2026 | - | [poster](https://www.researchgate.net/publication/411851358_Standardization_of_Attested_TLS), video |
 | [Workshop for the 25 years of ProVerif](https://bblanche.gitlabpages.inria.fr/proverif//25years.html) | Paris, France | 3 June, 2026 | Sponsors are invited | - |
 | [Confidential Containers Community Meeting](https://confidentialcontainers.org/) @ [Cloud Native Computing Foundation](https://www.cncf.io/) | Virtual | 30 April, 2026 | - | [slides](https://www.researchgate.net/publication/411849492_Relay_Attacks_in_Intra-handshake_Attestation), [video](https://zoom.us/rec/share/3thZhsRi-BZJL-GqjnwGzh7inbltuKIlpVjqMlWp6WRdMTZ66Z8p-8YjaaeOfbhX.CoH6YBukaKua0gkt) around timestamp 00:27:00 |
-| GIF Project showcase @ [GA4GH April Connect 2026](https://www.ga4gh.org/event/april-connect-2026/) | Montreal, Canada (virtual) | 17 April, 2026 | - | slides, [video](https://youtu.be/Kr9oxp1fdn0?t=1083), [report](https://www.ga4gh.org/document/arpril-connect-2026-meeting-report/) |
+| GIF Project showcase @ [GA4GH April Connect 2026](https://www.ga4gh.org/event/april-connect-2026/) | Montreal, Canada (virtual) | 17 April, 2026 | - | [slides](https://www.researchgate.net/publication/412136610_Trusted_Research_Environment_TRE_Open_Suite), [video](https://youtu.be/Kr9oxp1fdn0?t=1083), [report](https://www.ga4gh.org/document/arpril-connect-2026-meeting-report/) |
 | [NSA Symposium on Hot Topics in the Science of Security (HotSoS) 2026](https://sos-vo.org/group/hotsos/) | Virtual | 16 April, 2026 | - | [abstract](https://sos-vo.org/group/hotsos/2026/sardar), [slides](https://sos-vo.org/system/files/2026-04/20260416_HotSoS%20%281%29.pdf), [video](https://sos-vo.org/group/hotsos/2026/sardar) |
 | [PET-CON 2026.1: 15th Privacy Enhancing Techniques Convention](https://fg-pet.gi.de/veranstaltung/15th-privacy-enhancing-techniques-convention) | Karlsruhe, Germany | 16-17 April, 2026 | Sponsors are invited | [slides](https://www.researchgate.net/publication/411849502_Formal_Analysis_of_Attested_TLS), [poster](https://www.researchgate.net/publication/411852738_Formal_Analysis_of_Attested_TLS_and_Standardization_in_the_IETF) |
 | [GTMFS 2026: Annual Meeting of the WG "Formal Methods in Security"](https://gtmfs2026.sciencesconf.org/program?lang=en) | Luz-Saint-Sauveur, France | 24-26 Mar, 2026 | Sponsors are invited | [slides](https://www.researchgate.net/publication/411853715_Relay_Attacks_in_Intra-handshake_Attestation) |
