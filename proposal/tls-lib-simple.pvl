@@ -305,8 +305,7 @@ event ClientConn(bitstring).
 event ClientOffersHash(random,hash_alg).
 event ClientOffersKEX(random,kex_alg).
 event ClientOffersEvType(random,ev_typ).
-(* Old: ClientFinished(cr,sr,psk,pubLTK,offer,mode,kc,ks,ems,rms) *)
-(* New: ClientFinishedeWithID(ID,pubLTK,pubAK,psk,cr,sr,offer,mode,kc,ks,ems,rms) *)
+(* ClientFinished(pubLTK,psk,cr,sr,offer,mode,kc,ks,ems,rms) *)
 event ClientFinished(pubkey,
   preSharedKey,
   random,random,
@@ -336,6 +335,7 @@ event ClientFinRecentAgr(identity,identity,
       params,params,
       ae_key,ae_key,bitstring,bitstring,
       random,random).
+(* New: ClientFinishedWithID(ID_S,pubLTK,pubAK,psk,cr,sr,offer,mode,kc,ks,ems,rms) *)
 event ClientFinishedWithID(identity,pubkey,pubkey,
   preSharedKey,
   random,random,
@@ -483,10 +483,10 @@ query ev:bitstring;
 
 (* should be false (confirms event is reachable) *)
 query cr:random, sr:random,
-      psk:preSharedKey, ID:identity,pubLTK:pubkey,pubAK:pubkey, e:element,
+      psk:preSharedKey, ID:identity,pubLTK:pubkey, e:element,
       offer:params, mode:params,
       kc:ae_key,ks:ae_key,ems:bitstring,rms:bitstring;
-      event(ClientFinished(pubAK,psk,cr,sr,offer,mode,kc,ks,ems,rms)).
+      event(ClientFinished(pubLTK,psk,cr,sr,offer,mode,kc,ks,ems,rms)).
 
 query cr:random, sr:random,
       psk:preSharedKey, ID_S:identity,ID_C:identity,pubLTK:pubkey,pubAK:pubkey, e:element,
@@ -529,7 +529,7 @@ query pubEK:pubkey,dev_state:bitstring,quote:bitstring,
       psk:preSharedKey, e:element,
       offer:params, mode:params, ID_S:identity,
       kc:ae_key,ks:ae_key,ems:bitstring,rms:bitstring;
-  event(ClientFinished(pubEK,psk,cr,sr,offer,mode,kc,ks,ems,rms)) &&
+  event(ClientFinished(pubLTK,psk,cr,sr,offer,mode,kc,ks,ems,rms)) &&
   event(ServerFinished(cr,sr,psk,pubLTK,offer,mode,kc,ks,ems,rms)) ==>
   event(ServerChoosesKEX(cr,sr,DHE_13(WeakDH,e))) ||
   event(ServerChoosesHash(cr',sr',WeakHash)) ||
@@ -724,7 +724,7 @@ let Client(ID_C:identity,ID_S:identity,pubAK:pubkey,pubCA:pubkey) =
     event ClientStateEvKc(quote,kc);    
     event ClientStateEvKch(quote,kch);
     event ClientStateEv(quote,gxy);
-    event ClientFinished(pubEK,psk,cr,sr,offer,mode,kc,ks,ems,rms);
+    event ClientFinished(pubLTK,psk,cr,sr,offer,mode,kc,ks,ems,rms);
     (* insert clientSession(cr,sr,psk,offer,mode,kc,ks,ems,rms);  kc and ks are passed to appData via this table *)
     out(io,FIN(m2))  (* send ClientFinished message *)
 
