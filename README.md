@@ -110,11 +110,11 @@ We consider TLS Server as RATS Attester, which is typical in confidential comput
 
 <div align="center">
 
-| Property                   	        | Mechanism #1,2,4,6 | Mechanism #3,5,7 | Proposed mechanism |
-| :--                		              | :--    | :--   | :--   |
-| G1 : Correlation of Evidence to `gxy` | ❌     | ✅    | ✅    |
-| G2 : Correlation of Evidence to `kch` | ❌     | ❌    | ✅    |
-| G3 : Correlation of Evidence to `kc`  | ❌     | ❌    | ❌    |
+| Property                   	        | Mechanism #1,2,4,6 | Mechanism #3,5,7 | Proposed mechanism | Post-handshake, exporter-derived binder ([proposal-post-handshake](./proposal-post-handshake/)) |
+| :--                		              | :--    | :--   | :--   | :--   |
+| G1 : Correlation of Evidence to `gxy` | ❌     | ✅    | ✅    | ✅    |
+| G2 : Correlation of Evidence to `kch` | ❌     | ❌    | ✅    | ✅    |
+| G3 : Correlation of Evidence to `kc`  | ❌     | ❌    | ❌    | ✅    |
 
 </div>
 
@@ -132,6 +132,7 @@ We consider TLS Server as RATS Attester, which is typical in confidential comput
 | 6. | Combination of #2 and #4 | [binder6](./binder6/) | [binder6](./binder6/log.txt) |
 | 7. | Combination of #2, #3, and #4 | [binder7](./binder7/) | [binder7](./binder7/log.txt) |
 | 8. | Proposed | [proposal](./proposal/) | [proposal](./proposal/log.txt) |
+| 9. | Post-handshake, exporter-derived binder | [proposal-post-handshake](./proposal-post-handshake/) | [proposal-post-handshake](./proposal-post-handshake/log.txt) |
 
 </div>
 
@@ -279,6 +280,7 @@ While it would be nice to model PSK-based handshake, the rationale is that the c
 
 - Folders `binder1` till `binder7` contain code for [binding mechanism](https://github.com/muhammad-usama-sardar/intra-handshake.fail#overview) #1 till #7, respectively.
 - Folder `proposal` contains code for our proposed binding mechanism for mitigation.
+- Folder `proposal-post-handshake` contains `changes.patch` against `proposal/tls-lib-simple.pvl`: the certificate carries no evidence; after the handshake the client sends a fresh context and the server answers with a quote whose report_data commits to the leaf key, the context and a TLS exporter value (RFC 8446 section 7.5, the shape of RFC 9261); the queries of `proposal` are unchanged and one reachability query is added (both endpoints share `kc` and the attacker holds it). `build.sh` rebuilds the folder from `proposal`; `log.txt` is the resulting run. G1, G2 and G3 hold with the threat model as it is (weak groups, bad elements, weak hashes and all key leaks left reachable); the added query is reachable, the attacker holds the shared key in the WeakDH trace.
 - Folder `aggregate` contains code for all analyzed and proposed binding mechanisms to select via uncomment.
 
 </details>
