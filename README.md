@@ -113,11 +113,11 @@ We consider TLS Server as RATS Attester, which is typical in confidential comput
 
 <div align="center">
 
-| Property                   	        | Mechanism #1,2,4,6 | Mechanism #3,5,7 | Proposed mechanism |
-| :--                		              | :--    | :--   | :--   |
-| G1 : Correlation of Evidence to `gxy` | ❌     | ✅    | ✅    |
-| G2 : Correlation of Evidence to `kch` | ❌     | ❌    | ✅    |
-| G3 : Correlation of Evidence to `kc`  | ❌     | ❌    | ❌    |
+| Property                   	        | Mechanism #1,2,4,6 | Mechanism #3,5,7 | Proposed mechanism | Proposed mechanism, TLS 1.3-compliant endpoints (RFC 8446 / RFC 9846) ([proposal-tls13](./proposal-tls13/)) |
+| :--                		              | :--    | :--   | :--   | :--   |
+| G1 : Correlation of Evidence to `gxy` | ❌     | ✅    | ✅    | ✅    |
+| G2 : Correlation of Evidence to `kch` | ❌     | ❌    | ✅    | ✅    |
+| G3 : Correlation of Evidence to `kc`  | ❌     | ❌    | ❌    | ✅    |
 
 </div>
 
@@ -135,6 +135,7 @@ We consider TLS Server as RATS Attester, which is typical in confidential comput
 | 6. | Combination of #2 and #4 | [binder6](./binder6/) | [binder6](./binder6/log.txt) |
 | 7. | Combination of #2, #3, and #4 | [binder7](./binder7/) | [binder7](./binder7/log.txt) |
 | 8. | Proposed | [proposal](./proposal/) | [proposal](./proposal/log.txt) |
+| 9. | Proposed, with compliant TLS 1.3 endpoints | [proposal-tls13](./proposal-tls13/) | [proposal-tls13](./proposal-tls13/log.txt) |
 
 </div>
 
@@ -282,6 +283,7 @@ While it would be nice to model PSK-based handshake, the rationale is that the c
 
 - Folders `binder1` till `binder7` contain code for [binding mechanism](https://github.com/muhammad-usama-sardar/intra-handshake.fail#overview) #1 till #7, respectively.
 - Folder `proposal` contains code for our proposed binding mechanism for mitigation.
+- Folder `proposal-tls13` contains `changes.patch` (eight lines added to `tls-lib-simple.pvl` of the proposed mechanism, restricting the client and server processes to what TLS 1.3 requires of an endpoint since RFC 8446 (2018), now RFC 9846: strong groups, key-share validation, SHA-2 suites; all queries unchanged), `build.sh` to rebuild the folder from `proposal`, and the resulting `log.txt`.
 - Folder `aggregate` contains code for all analyzed and proposed binding mechanisms to select via uncomment.
 
 </details>
