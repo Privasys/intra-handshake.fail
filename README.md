@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
-> This is the Privasys fork. Its default branch `privasys` adds three folders and README notes on top of the authors' repository: the precondition of the relay attacks, the proposed binder with TLS 1.3-compliant endpoints (`proposal-tls13`), and post-handshake attestation with an exporter-derived binder (`proposal-post-handshake`). The branch `main` mirrors upstream. The write-up with the same models under a reproduction harness and CI is at [github.com/Privasys/security](https://github.com/Privasys/security/tree/main/attested-tls-level3).
+> This is the Privasys fork. Its default branch `privasys` adds two folders and README notes on top of the authors' repository: the precondition of the relay attacks stated above the Overview, the proposed binder with TLS 1.3-compliant endpoints (`proposal-tls13`), and post-handshake attestation with an exporter-derived binder (`proposal-post-handshake`). The branch `main` mirrors upstream. The write-up with the same models under a reproduction harness and CI is at [github.com/Privasys/security](https://github.com/Privasys/security/tree/main/attested-tls-level3).
 
 <p align="center">
   <img src="images/logo.png" width="400"><br>
