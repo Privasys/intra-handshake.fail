@@ -4,6 +4,8 @@
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
+> This is the Privasys fork. Its default branch `privasys` adds three folders and README notes on top of the authors' repository: the precondition of the relay attacks, the proposed binder with TLS 1.3-compliant endpoints (`proposal-tls13`), and post-handshake attestation with an exporter-derived binder (`proposal-post-handshake`). The branch `main` mirrors upstream. The write-up with the same models under a reproduction harness and CI is at [github.com/Privasys/security](https://github.com/Privasys/security/tree/main/attested-tls-level3).
+
 <p align="center">
   <img src="images/logo.png" width="400"><br>
 </p>
@@ -113,11 +115,11 @@ We consider TLS Server as RATS Attester, which is typical in confidential comput
 
 <div align="center">
 
-| Property                   	        | Mechanism #1,2,4,6 | Mechanism #3,5,7 | Proposed mechanism | Proposed mechanism, TLS 1.3-compliant endpoints (RFC 8446 / RFC 9846) ([proposal-tls13](./proposal-tls13/)) |
-| :--                		              | :--    | :--   | :--   | :--   |
-| G1 : Correlation of Evidence to `gxy` | ❌     | ✅    | ✅    | ✅    |
-| G2 : Correlation of Evidence to `kch` | ❌     | ❌    | ✅    | ✅    |
-| G3 : Correlation of Evidence to `kc`  | ❌     | ❌    | ❌    | ✅    |
+| Property                   	        | Mechanism #1,2,4,6 | Mechanism #3,5,7 | Proposed mechanism | Proposed mechanism, TLS 1.3-compliant endpoints (RFC 8446 / RFC 9846) ([proposal-tls13](./proposal-tls13/)) | Post-handshake, exporter-derived binder ([proposal-post-handshake](./proposal-post-handshake/)) |
+| :--                		              | :--    | :--   | :--   | :--   | :--   |
+| G1 : Correlation of Evidence to `gxy` | ❌     | ✅    | ✅    | ✅    | ✅    |
+| G2 : Correlation of Evidence to `kch` | ❌     | ❌    | ✅    | ✅    | ✅    |
+| G3 : Correlation of Evidence to `kc`  | ❌     | ❌    | ❌    | ✅    | ✅    |
 
 </div>
 
@@ -136,6 +138,7 @@ We consider TLS Server as RATS Attester, which is typical in confidential comput
 | 7. | Combination of #2, #3, and #4 | [binder7](./binder7/) | [binder7](./binder7/log.txt) |
 | 8. | Proposed | [proposal](./proposal/) | [proposal](./proposal/log.txt) |
 | 9. | Proposed, with compliant TLS 1.3 endpoints | [proposal-tls13](./proposal-tls13/) | [proposal-tls13](./proposal-tls13/log.txt) |
+| 10. | Post-handshake, exporter-derived binder | [proposal-post-handshake](./proposal-post-handshake/) | [proposal-post-handshake](./proposal-post-handshake/log.txt) |
 
 </div>
 
@@ -284,6 +287,7 @@ While it would be nice to model PSK-based handshake, the rationale is that the c
 - Folders `binder1` till `binder7` contain code for [binding mechanism](https://github.com/muhammad-usama-sardar/intra-handshake.fail#overview) #1 till #7, respectively.
 - Folder `proposal` contains code for our proposed binding mechanism for mitigation.
 - Folder `proposal-tls13` contains `changes.patch` (eight lines added to `tls-lib-simple.pvl` of the proposed mechanism, restricting the client and server processes to what TLS 1.3 requires of an endpoint since RFC 8446 (2018), now RFC 9846: strong groups, key-share validation, SHA-2 suites; all queries unchanged), `build.sh` to rebuild the folder from `proposal`, and the resulting `log.txt`.
+- Folder `proposal-post-handshake` contains `changes.patch` against `proposal/tls-lib-simple.pvl`: the certificate carries no evidence; after the handshake the client sends a fresh context and the server answers with a quote whose report_data commits to the leaf key, the context and a TLS exporter value (RFC 8446 section 7.5, the shape of RFC 9261); the queries of `proposal` are unchanged and one reachability query is added (both endpoints share `kc` and the attacker holds it). `build.sh` rebuilds the folder from `proposal`; `log.txt` is the resulting run. G1, G2 and G3 hold with the threat model as it is (weak groups, bad elements, weak hashes and all key leaks left reachable); the added query is reachable, the attacker holds the shared key in the WeakDH trace.
 - Folder `aggregate` contains code for all analyzed and proposed binding mechanisms to select via uncomment.
 
 </details>
