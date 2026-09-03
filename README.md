@@ -12,6 +12,9 @@
 
 </div>
 
+> [!IMPORTANT]
+> **Precondition of the attacks.** For every binding mechanism that commits the server's public key into the Evidence (#4, #6, #7 below and the proposed mechanism), the relay attacks in this repository require the attacker to hold the private key `privEK` of the TLS endpoint inside the TEE (the `LEK` process in the model). The model records the leak as an event without a cause. In a confidential-computing deployment the client reviews the enclave code and whitelists its measurement before trusting any quote; an enclave that provisioned, exported or shared its TLS key at runtime would fail that review. For a whitelisted enclave that generates its key inside the TEE, obtaining `privEK` means defeating the TEE's memory isolation, on the target machine or on another machine running the same measured code. In other words, the attack begins where confidential computing's core guarantee has already failed. The nonce-only mechanisms (#1, #2, #3, #5) are relayable without any key extraction.
+
 ## Overview
 
 This repo contains the artifacts for formal specification and analysis of the candidate binding mechanisms for binding in intra-handshake attestation for standardization for attested TLS protocols:
